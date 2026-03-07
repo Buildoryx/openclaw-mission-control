@@ -14,6 +14,7 @@ import {
 import { BrandMark } from "@/components/atoms/BrandMark";
 import { OrgSwitcher } from "@/components/organisms/OrgSwitcher";
 import { UserMenu } from "@/components/organisms/UserMenu";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { isOnboardingComplete } from "@/lib/onboarding";
 
 export function DashboardShell({ children }: { children: ReactNode }) {
@@ -70,7 +71,7 @@ export function DashboardShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-app text-strong">
-      <header className="sticky top-0 z-40 border-b border-slate-200 bg-white shadow-sm">
+      <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--surface)] shadow-sm">
         <div className="grid grid-cols-[260px_1fr_auto] items-center gap-0 py-3">
           <div className="flex items-center px-6">
             <BrandMark />
@@ -84,18 +85,19 @@ export function DashboardShell({ children }: { children: ReactNode }) {
           </SignedIn>
           <SignedIn>
             <div className="flex items-center gap-3 px-6">
+              <ThemeToggle />
               <div className="hidden text-right lg:block">
-                <p className="text-sm font-semibold text-slate-900">
+                <p className="text-sm font-semibold text-[var(--text)]">
                   {displayName}
                 </p>
-                <p className="text-xs text-slate-500">Operator</p>
+                <p className="text-xs text-[var(--text-muted)]">Operator</p>
               </div>
               <UserMenu displayName={displayName} displayEmail={displayEmail} />
             </div>
           </SignedIn>
         </div>
       </header>
-      <div className="grid min-h-[calc(100vh-64px)] grid-cols-[260px_1fr] bg-slate-50">
+      <div className="grid min-h-[calc(100vh-64px)] grid-cols-[260px_1fr] page-bg">
         {children}
       </div>
     </div>

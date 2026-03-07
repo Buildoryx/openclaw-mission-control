@@ -314,10 +314,10 @@ function ChartTooltipCard({
     <ChartTooltipContent
       {...props}
       className={cn(
-        "border border-gray-200 bg-white px-3 py-2 text-sm shadow-lg",
+        "border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm shadow-lg",
         className,
       )}
-      labelClassName={cn("text-sm font-semibold text-gray-900", labelClassName)}
+      labelClassName={cn("text-sm font-semibold text-[var(--text)]", labelClassName)}
     />
   );
 }
@@ -439,7 +439,7 @@ function ChartLegendItem({
       aria-pressed={!isHidden}
       onClick={handleClick}
       className={cn(
-        "flex items-center gap-2 text-gray-600 transition-opacity [&>svg]:h-3 [&>svg]:w-3 cursor-pointer disabled:cursor-not-allowed disabled:opacity-60",
+        "flex items-center gap-2 text-[var(--text-muted)] transition-opacity [&>svg]:h-3 [&>svg]:w-3 cursor-pointer disabled:cursor-not-allowed disabled:opacity-60",
         isHidden && "opacity-50",
         className,
       )}
@@ -453,7 +453,7 @@ function ChartLegendItem({
           style={{ backgroundColor: resolvedColor }}
         />
       )}
-      <span className={cn(isHidden && "line-through text-gray-400")}>
+      <span className={cn(isHidden && "line-through text-[var(--text-quiet)]")}>
         {resolvedLabel}
       </span>
     </button>

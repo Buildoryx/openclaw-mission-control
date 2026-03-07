@@ -4,7 +4,7 @@ type AdminOnlyNoticeProps = {
 
 export function AdminOnlyNotice({ message }: AdminOnlyNoticeProps) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white px-6 py-5 text-sm text-slate-600 shadow-sm">
+    <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] px-6 py-5 text-sm text-[var(--text-muted)] shadow-sm">
       {message}
     </div>
   );

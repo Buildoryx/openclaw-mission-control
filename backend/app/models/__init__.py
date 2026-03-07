@@ -1,6 +1,7 @@
 """Model exports for SQLAlchemy/SQLModel metadata discovery."""
 
 from app.models.activity_events import ActivityEvent
+from app.models.agent_message import AgentMessage
 from app.models.agents import Agent
 from app.models.approval_task_links import ApprovalTaskLink
 from app.models.approvals import Approval
@@ -11,6 +12,12 @@ from app.models.board_onboarding import BoardOnboardingSession
 from app.models.board_webhook_payloads import BoardWebhookPayload
 from app.models.board_webhooks import BoardWebhook
 from app.models.boards import Board
+from app.models.deliberation import (
+    Deliberation,
+    DeliberationEntry,
+    DeliberationSynthesis,
+)
+from app.models.episodic_memory import EpisodicMemory
 from app.models.gateways import Gateway
 from app.models.organization_board_access import OrganizationBoardAccess
 from app.models.organization_invite_board_access import OrganizationInviteBoardAccess
@@ -28,10 +35,12 @@ from app.models.task_custom_fields import (
 from app.models.task_dependencies import TaskDependency
 from app.models.task_fingerprints import TaskFingerprint
 from app.models.tasks import Task
+from app.models.token_usage import TokenUsageEvent
 from app.models.users import User
 
 __all__ = [
     "ActivityEvent",
+    "AgentMessage",
     "Agent",
     "ApprovalTaskLink",
     "Approval",
@@ -40,6 +49,10 @@ __all__ = [
     "BoardWebhookPayload",
     "BoardMemory",
     "BoardOnboardingSession",
+    "Deliberation",
+    "DeliberationEntry",
+    "DeliberationSynthesis",
+    "EpisodicMemory",
     "BoardGroup",
     "Board",
     "Gateway",
@@ -59,5 +72,6 @@ __all__ = [
     "TaskFingerprint",
     "Tag",
     "TagAssignment",
+    "TokenUsageEvent",
     "User",
 ]

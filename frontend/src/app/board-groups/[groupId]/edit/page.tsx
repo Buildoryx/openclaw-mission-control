@@ -288,18 +288,18 @@ export default function EditBoardGroupPage() {
     >
       <form
         onSubmit={handleSubmit}
-        className="space-y-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+        className="space-y-6 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm"
       >
         {assignFailedCount && Number.isFinite(assignFailedCount) ? (
-          <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 shadow-sm">
+          <div className="rounded-xl border border alert-warning p-4 text-sm text-[var(--alert-warning-text)] shadow-sm">
             Group was created, but {assignFailedCount} board assignment
             {assignFailedCount === 1 ? "" : "s"} failed. You can retry below.
           </div>
         ) : null}
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-900">
-              Group name <span className="text-red-500">*</span>
+            <label className="text-sm font-medium text-[var(--text)]">
+              Group name <span className="text-[var(--danger)]">*</span>
             </label>
             <Input
               value={resolvedName}
@@ -311,7 +311,7 @@ export default function EditBoardGroupPage() {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-900">
+          <label className="text-sm font-medium text-[var(--text)]">
             Description
           </label>
           <Textarea
@@ -323,16 +323,16 @@ export default function EditBoardGroupPage() {
           />
         </div>
 
-        <div className="space-y-2 border-t border-slate-100 pt-6">
+        <div className="space-y-2 border-t border-[var(--border)] pt-6">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
-              <p className="text-sm font-medium text-slate-900">Boards</p>
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="text-sm font-medium text-[var(--text)]">Boards</p>
+              <p className="mt-1 text-xs text-[var(--text-muted)]">
                 Assign boards to this group to share context across related
                 work.
               </p>
             </div>
-            <span className="text-xs text-slate-500">
+            <span className="text-xs text-[var(--text-muted)]">
               {selectedBoardIds.size} selected
             </span>
           </div>
@@ -344,21 +344,21 @@ export default function EditBoardGroupPage() {
             disabled={isLoading || !baseGroup}
           />
 
-          <div className="max-h-64 overflow-auto rounded-xl border border-slate-200 bg-slate-50/40">
+          <div className="max-h-64 overflow-auto rounded-xl border border-[var(--border)] bg-[var(--surface-muted)]/40">
             {boardsLoading && boards.length === 0 ? (
-              <div className="px-4 py-6 text-sm text-slate-500">
+              <div className="px-4 py-6 text-sm text-[var(--text-muted)]">
                 Loading boards…
               </div>
             ) : boardsError ? (
-              <div className="px-4 py-6 text-sm text-rose-700">
+              <div className="px-4 py-6 text-sm text-[var(--danger)]">
                 {boardsError.message}
               </div>
             ) : boards.length === 0 ? (
-              <div className="px-4 py-6 text-sm text-slate-500">
+              <div className="px-4 py-6 text-sm text-[var(--text-muted)]">
                 No boards found.
               </div>
             ) : (
-              <ul className="divide-y divide-slate-200">
+              <ul className="divide-y divide-[var(--border)]">
                 {boards
                   .filter((board) => {
                     const q = boardSearch.trim().toLowerCase();
@@ -378,7 +378,7 @@ export default function EditBoardGroupPage() {
                         <label className="flex cursor-pointer items-start gap-3">
                           <input
                             type="checkbox"
-                            className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600"
+                            className="mt-1 h-4 w-4 rounded border-[var(--border-strong)] text-[var(--accent)]"
                             checked={checked}
                             onChange={() => {
                               setSelectedBoardIds((prev) => {
@@ -394,15 +394,15 @@ export default function EditBoardGroupPage() {
                             disabled={isLoading || !baseGroup}
                           />
                           <div className="min-w-0">
-                            <p className="truncate text-sm font-medium text-slate-900">
+                            <p className="truncate text-sm font-medium text-[var(--text)]">
                               {board.name}
                             </p>
-                            <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500">
-                              <span className="font-mono text-[11px] text-slate-400">
+                            <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-[var(--text-muted)]">
+                              <span className="font-mono text-[11px] text-[var(--text-quiet)]">
                                 {board.id}
                               </span>
                               {isAlreadyGrouped ? (
-                                <span className="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-amber-900">
+                                <span className="rounded-full border border alert-warning px-2 py-0.5 text-[var(--alert-warning-text)]">
                                   in another group
                                 </span>
                               ) : null}
@@ -417,10 +417,10 @@ export default function EditBoardGroupPage() {
           </div>
 
           {assignmentsError ? (
-            <p className="text-sm text-rose-700">{assignmentsError}</p>
+            <p className="text-sm text-[var(--danger)]">{assignmentsError}</p>
           ) : null}
           {assignmentsResult ? (
-            <p className="text-sm text-slate-700">
+            <p className="text-sm text-[var(--text-muted)]">
               Updated {assignmentsResult.updated} board
               {assignmentsResult.updated === 1 ? "" : "s"}, failed{" "}
               {assignmentsResult.failed}.
@@ -429,7 +429,7 @@ export default function EditBoardGroupPage() {
         </div>
 
         {errorMessage ? (
-          <p className="text-sm text-red-500">{errorMessage}</p>
+          <p className="text-sm text-[var(--danger)]">{errorMessage}</p>
         ) : null}
 
         <div className="flex justify-end gap-3">

@@ -65,7 +65,7 @@ const SparklineTooltip = ({
           : "Day";
   const prefix = resolvedLabel ?? (dayIndex ? `${label} ${dayIndex}` : "");
   return (
-    <div className="rounded-md border border-gray-200 bg-white px-2 py-1 text-xs font-medium text-gray-700 shadow-sm">
+    <div className="rounded-md border border-[var(--border)] bg-[var(--surface)] px-2 py-1 text-xs font-medium text-[var(--text-muted)] shadow-sm">
       {prefix ? `${prefix}: ` : ""}
       {formatSparkValue(rawValue)}
     </div>

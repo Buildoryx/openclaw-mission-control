@@ -13,6 +13,7 @@ from sqlmodel import col, select
 
 from app.db import crud
 from app.models.activity_events import ActivityEvent
+from app.models.agent_message import AgentMessage
 from app.models.agents import Agent
 from app.models.approval_task_links import ApprovalTaskLink
 from app.models.approvals import Approval
@@ -20,6 +21,12 @@ from app.models.board_memory import BoardMemory
 from app.models.board_onboarding import BoardOnboardingSession
 from app.models.board_webhook_payloads import BoardWebhookPayload
 from app.models.board_webhooks import BoardWebhook
+from app.models.deliberation import (
+    Deliberation,
+    DeliberationEntry,
+    DeliberationSynthesis,
+)
+from app.models.episodic_memory import EpisodicMemory
 from app.models.organization_board_access import OrganizationBoardAccess
 from app.models.organization_invite_board_access import OrganizationInviteBoardAccess
 from app.models.tag_assignments import TagAssignment
@@ -28,7 +35,10 @@ from app.models.task_dependencies import TaskDependency
 from app.models.task_fingerprints import TaskFingerprint
 from app.models.tasks import Task
 from app.schemas.common import OkResponse
-from app.services.openclaw.gateway_resolver import gateway_client_config, require_gateway_for_board
+from app.services.openclaw.gateway_resolver import (
+    gateway_client_config,
+    require_gateway_for_board,
+)
 from app.services.openclaw.gateway_rpc import OpenClawGatewayError
 from app.services.openclaw.provisioning import OpenClawGatewayProvisioner
 
@@ -43,7 +53,8 @@ def _is_missing_gateway_agent_error(exc: OpenClawGatewayError) -> bool:
     if not message:
         return False
     if any(
-        marker in message for marker in ("unknown agent", "no such agent", "agent does not exist")
+        marker in message
+        for marker in ("unknown agent", "no such agent", "agent does not exist")
     ):
         return True
     return "agent" in message and "not found" in message
@@ -52,10 +63,14 @@ def _is_missing_gateway_agent_error(exc: OpenClawGatewayError) -> bool:
 async def delete_board(session: AsyncSession, *, board: Board) -> OkResponse:
     """Delete a board and all dependent records, cleaning gateway state when configured."""
     agents = await Agent.objects.filter_by(board_id=board.id).all(session)
-    task_ids = list(await session.exec(select(Task.id).where(Task.board_id == board.id)))
+    task_ids = list(
+        await session.exec(select(Task.id).where(Task.board_id == board.id))
+    )
 
     if board.gateway_id:
-        gateway = await require_gateway_for_board(session, board, require_workspace_root=True)
+        gateway = await require_gateway_for_board(
+            session, board, require_workspace_root=True
+        )
         # Ensure URL is present (required for gateway cleanup calls).
         gateway_client_config(gateway)
         for agent in agents:
@@ -120,13 +135,60 @@ async def delete_board(session: AsyncSession, *, board: Board) -> OkResponse:
     )
     await crud.delete_where(session, Approval, col(Approval.board_id) == board.id)
 
+    # Deliberation module cleanup — delete in FK-safe order:
+    # episodic_memory → deliberation_syntheses → deliberation_entries →
+    # deliberations → agent_messages.
+    delib_ids_subq = select(Deliberation.id).where(
+        col(Deliberation.board_id) == board.id
+    )
+    await crud.delete_where(
+        session,
+        EpisodicMemory,
+        col(EpisodicMemory.board_id) == board.id,
+        commit=False,
+    )
+    await crud.delete_where(
+        session,
+        DeliberationSynthesis,
+        col(DeliberationSynthesis.deliberation_id).in_(delib_ids_subq),
+        commit=False,
+    )
+    await crud.delete_where(
+        session,
+        DeliberationEntry,
+        col(DeliberationEntry.deliberation_id).in_(delib_ids_subq),
+        commit=False,
+    )
+    await crud.delete_where(
+        session,
+        Deliberation,
+        col(Deliberation.board_id) == board.id,
+        commit=False,
+    )
+    await crud.delete_where(
+        session,
+        AgentMessage,
+        col(AgentMessage.board_id) == board.id,
+        commit=False,
+    )
+
+    # Flush deliberation working memory (Redis) — fire-and-forget.
+    try:
+        from app.services.deliberation_hooks import deliberation_hooks
+
+        await deliberation_hooks.on_board_deleting(board.id)
+    except Exception:
+        pass  # Non-critical; Redis keys will expire via TTL.
+
     await crud.delete_where(session, BoardMemory, col(BoardMemory.board_id) == board.id)
     await crud.delete_where(
         session,
         BoardWebhookPayload,
         col(BoardWebhookPayload.board_id) == board.id,
     )
-    await crud.delete_where(session, BoardWebhook, col(BoardWebhook.board_id) == board.id)
+    await crud.delete_where(
+        session, BoardWebhook, col(BoardWebhook.board_id) == board.id
+    )
     await crud.delete_where(
         session,
         BoardOnboardingSession,

@@ -26,15 +26,19 @@ vi.mock("next/image", () => ({
 }));
 
 vi.mock("next/link", () => ({
-  default: ({
-    children,
-    href,
-    ...rest
-  }: LinkProps) => (
+  default: ({ children, href, ...rest }: LinkProps) => (
     <a href={typeof href === "string" ? href : "#"} {...rest}>
       {children}
     </a>
   ),
+}));
+
+vi.mock("@/components/providers/ThemeProvider", () => ({
+  useTheme: () => ({
+    theme: "system",
+    resolvedTheme: "light",
+    setTheme: vi.fn(),
+  }),
 }));
 
 vi.mock("@/auth/clerk", () => ({

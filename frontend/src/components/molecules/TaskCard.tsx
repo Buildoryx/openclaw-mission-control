@@ -53,15 +53,15 @@ export function TaskCard({
     if (!value) return null;
     const normalized = value.toLowerCase();
     if (normalized === "high") {
-      return "bg-rose-100 text-rose-700";
+      return "priority-high";
     }
     if (normalized === "medium") {
-      return "bg-amber-100 text-amber-700";
+      return "priority-medium";
     }
     if (normalized === "low") {
-      return "bg-emerald-100 text-emerald-700";
+      return "priority-low";
     }
-    return "bg-slate-100 text-slate-600";
+    return "priority-default";
   };
 
   const priorityLabel = priority ? priority.toUpperCase() : "MEDIUM";
@@ -70,11 +70,11 @@ export function TaskCard({
   return (
     <div
       className={cn(
-        "group relative cursor-pointer rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md",
+        "group relative cursor-pointer rounded-lg border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[var(--border-strong)] hover:shadow-md",
         isDragging && "opacity-60 shadow-none",
-        hasPendingApproval && "border-amber-200 bg-amber-50/40",
-        isBlocked && "border-rose-200 bg-rose-50/50",
-        needsLeadReview && "border-indigo-200 bg-indigo-50/30",
+        hasPendingApproval && "task-card-approval",
+        isBlocked && "task-card-blocked",
+        needsLeadReview && "task-card-review",
       )}
       draggable={draggable}
       onDragStart={onDragStart}
@@ -99,23 +99,23 @@ export function TaskCard({
       ) : null}
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 space-y-2">
-          <p className="text-sm font-medium text-slate-900 line-clamp-2 break-words">
+          <p className="text-sm font-medium text-[var(--text)] line-clamp-2 break-words">
             {title}
           </p>
           {isBlocked ? (
-            <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-rose-700">
+            <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--pill-rose-text)]">
               <span className="h-1.5 w-1.5 rounded-full bg-rose-500" />
               Blocked{blockedByCount > 0 ? ` · ${blockedByCount}` : ""}
             </div>
           ) : null}
           {hasPendingApproval ? (
-            <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
+            <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--pill-amber-text)]">
               <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
               Approval needed · {approvalsPendingCount}
             </div>
           ) : null}
           {needsLeadReview ? (
-            <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-indigo-700">
+            <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--pill-indigo-text)]">
               <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
               Waiting for lead review
             </div>
@@ -125,7 +125,7 @@ export function TaskCard({
               {visibleTags.map((tag) => (
                 <span
                   key={tag.id}
-                  className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2 py-0.5 text-[10px] font-semibold text-slate-700"
+                  className="inline-flex items-center gap-1 rounded-full border border-[var(--border)] bg-[var(--surface)] px-2 py-0.5 text-[10px] font-semibold text-[var(--text-muted)]"
                 >
                   <span
                     className="h-1.5 w-1.5 rounded-full"
@@ -135,7 +135,7 @@ export function TaskCard({
                 </span>
               ))}
               {tags.length > visibleTags.length ? (
-                <span className="text-[10px] font-semibold text-slate-500">
+                <span className="text-[10px] font-semibold text-[var(--text-muted)]">
                   +{tags.length - visibleTags.length}
                 </span>
               ) : null}
@@ -146,29 +146,29 @@ export function TaskCard({
           <span
             className={cn(
               "inline-flex items-center rounded-full px-2 py-1 text-[10px] font-semibold uppercase tracking-wide",
-              priorityBadge(priority) ?? "bg-slate-100 text-slate-600",
+              priorityBadge(priority) ?? "priority-default",
             )}
           >
             {priorityLabel}
           </span>
         </div>
       </div>
-      <div className="mt-3 flex items-center justify-between text-xs text-slate-500">
+      <div className="mt-3 flex items-center justify-between text-xs text-[var(--text-muted)]">
         <div className="flex items-center gap-2">
-          <UserCircle className="h-4 w-4 text-slate-400" />
+          <UserCircle className="h-4 w-4 text-[var(--text-quiet)]" />
           <span>{assignee ?? "Unassigned"}</span>
         </div>
         {due ? (
           <div
             className={cn(
               "flex items-center gap-2",
-              isOverdue && "font-semibold text-rose-600",
+              isOverdue && "font-semibold text-[var(--danger)]",
             )}
           >
             <CalendarClock
               className={cn(
                 "h-4 w-4",
-                isOverdue ? "text-rose-500" : "text-slate-400",
+                isOverdue ? "text-[var(--danger)]" : "text-[var(--text-quiet)]",
               )}
             />
             <span>{due}</span>

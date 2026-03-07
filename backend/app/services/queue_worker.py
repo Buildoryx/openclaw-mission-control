@@ -9,20 +9,44 @@ from dataclasses import dataclass
 
 from app.core.config import settings
 from app.core.logging import get_logger
-from app.services.openclaw.lifecycle_queue import TASK_TYPE as LIFECYCLE_RECONCILE_TASK_TYPE
+from app.services.openclaw.lifecycle_queue import (
+    TASK_TYPE as LIFECYCLE_RECONCILE_TASK_TYPE,
+)
 from app.services.openclaw.lifecycle_queue import (
     requeue_lifecycle_queue_task,
 )
 from app.services.openclaw.lifecycle_reconcile import process_lifecycle_queue_task
-from app.services.queue import QueuedTask, dequeue_task
+from app.services.queue import QueuedTask, dequeue_task, enqueue_task, requeue_if_failed
 from app.services.webhooks.dispatch import (
     process_webhook_queue_task,
     requeue_webhook_queue_task,
 )
 from app.services.webhooks.queue import TASK_TYPE as WEBHOOK_TASK_TYPE
 
+EPISODIC_EXTRACTION_TASK_TYPE = "episodic_extraction"
+
 logger = get_logger(__name__)
 _WORKER_BLOCK_TIMEOUT_SECONDS = 5.0
+
+
+async def _process_episodic_extraction_task(task: QueuedTask) -> None:
+    """Run episodic pattern extraction from a queued task payload."""
+    from app.db.session import async_session_maker
+    from app.services.memory.episodic import run_extraction_from_payload
+
+    async with async_session_maker() as session:
+        await run_extraction_from_payload(session, task.payload)
+
+
+def _requeue_episodic_extraction_task(task: QueuedTask, delay_seconds: float) -> bool:
+    """Requeue a failed episodic extraction task with retry logic."""
+    return requeue_if_failed(
+        task,
+        settings.rq_queue_name,
+        max_retries=settings.rq_dispatch_max_retries,
+        redis_url=settings.rq_redis_url,
+        delay_seconds=delay_seconds,
+    )
 
 
 @dataclass(frozen=True)
@@ -39,7 +63,9 @@ _TASK_HANDLERS: dict[str, _TaskHandler] = {
             settings.rq_dispatch_retry_base_seconds * (2 ** max(0, attempts)),
             settings.rq_dispatch_retry_max_seconds,
         ),
-        requeue=lambda task, delay: requeue_lifecycle_queue_task(task, delay_seconds=delay),
+        requeue=lambda task, delay: requeue_lifecycle_queue_task(
+            task, delay_seconds=delay
+        ),
     ),
     WEBHOOK_TASK_TYPE: _TaskHandler(
         handler=process_webhook_queue_task,
@@ -47,13 +73,25 @@ _TASK_HANDLERS: dict[str, _TaskHandler] = {
             settings.rq_dispatch_retry_base_seconds * (2 ** max(0, attempts)),
             settings.rq_dispatch_retry_max_seconds,
         ),
-        requeue=lambda task, delay: requeue_webhook_queue_task(task, delay_seconds=delay),
+        requeue=lambda task, delay: requeue_webhook_queue_task(
+            task, delay_seconds=delay
+        ),
+    ),
+    EPISODIC_EXTRACTION_TASK_TYPE: _TaskHandler(
+        handler=_process_episodic_extraction_task,
+        attempts_to_delay=lambda attempts: min(
+            settings.rq_dispatch_retry_base_seconds * (2 ** max(0, attempts)),
+            settings.rq_dispatch_retry_max_seconds,
+        ),
+        requeue=lambda task, delay: _requeue_episodic_extraction_task(task, delay),
     ),
 }
 
 
 def _compute_jitter(base_delay: float) -> float:
-    return random.uniform(0, min(settings.rq_dispatch_retry_max_seconds / 10, base_delay * 0.1))
+    return random.uniform(
+        0, min(settings.rq_dispatch_retry_max_seconds / 10, base_delay * 0.1)
+    )
 
 
 async def flush_queue(*, block: bool = False, block_timeout: float = 0) -> int:
@@ -149,4 +187,6 @@ def run_worker() -> None:
     try:
         asyncio.run(_run_worker_loop())
     finally:
-        logger.info("queue.worker.stopped", extra={"queue_name": settings.rq_queue_name})
+        logger.info(
+            "queue.worker.stopped", extra={"queue_name": settings.rq_queue_name}
+        )

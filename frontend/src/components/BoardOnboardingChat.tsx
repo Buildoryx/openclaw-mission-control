@@ -385,20 +385,20 @@ export function BoardOnboardingChat({
       </DialogHeader>
 
       {error ? (
-        <div className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+        <div className="rounded-lg border border alert-danger px-3 py-2 text-sm text-[var(--alert-danger-text)]">
           {error}
         </div>
       ) : null}
 
       {draft ? (
         <div className="space-y-3">
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-[var(--text-muted)]">
             Review the lead agent draft and confirm.
           </p>
           {isAwaitingAgent ? (
-            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
-              <div className="flex items-center gap-2 font-medium text-slate-900">
-                <RefreshCcw className="h-4 w-4 animate-spin text-slate-500" />
+            <div className="rounded-xl border border-[var(--border)] page-bg px-4 py-3 text-sm text-[var(--text-muted)]">
+              <div className="flex items-center gap-2 font-medium text-[var(--text)]">
+                <RefreshCcw className="h-4 w-4 animate-spin text-[var(--text-muted)]" />
                 <span>
                   {awaitingKind === "extra_context"
                     ? "Updating the draft…"
@@ -406,80 +406,80 @@ export function BoardOnboardingChat({
                 </span>
               </div>
               {lastSubmittedAnswer ? (
-                <p className="mt-2 text-xs text-slate-600">
+                <p className="mt-2 text-xs text-[var(--text-muted)]">
                   Sent:{" "}
-                  <span className="font-medium text-slate-900">
+                  <span className="font-medium text-[var(--text)]">
                     {lastSubmittedAnswer}
                   </span>
                 </p>
               ) : null}
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-[var(--text-muted)]">
                 This usually takes a few seconds.
               </p>
             </div>
           ) : null}
-          <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm">
-            <p className="font-semibold text-slate-900">Objective</p>
-            <p className="text-slate-700">{draft.objective || "—"}</p>
-            <p className="mt-3 font-semibold text-slate-900">Success metrics</p>
-            <pre className="mt-1 whitespace-pre-wrap text-xs text-slate-600">
+          <div className="rounded-lg border border-[var(--border)] page-bg p-3 text-sm">
+            <p className="font-semibold text-[var(--text)]">Objective</p>
+            <p className="text-[var(--text-muted)]">{draft.objective || "—"}</p>
+            <p className="mt-3 font-semibold text-[var(--text)]">Success metrics</p>
+            <pre className="mt-1 whitespace-pre-wrap text-xs text-[var(--text-muted)]">
               {JSON.stringify(draft.success_metrics ?? {}, null, 2)}
             </pre>
-            <p className="mt-3 font-semibold text-slate-900">Target date</p>
-            <p className="text-slate-700">{draft.target_date || "—"}</p>
-            <p className="mt-3 font-semibold text-slate-900">Board type</p>
-            <p className="text-slate-700">{draft.board_type || "goal"}</p>
+            <p className="mt-3 font-semibold text-[var(--text)]">Target date</p>
+            <p className="text-[var(--text-muted)]">{draft.target_date || "—"}</p>
+            <p className="mt-3 font-semibold text-[var(--text)]">Board type</p>
+            <p className="text-[var(--text-muted)]">{draft.board_type || "goal"}</p>
             {draft.user_profile ? (
               <>
-                <p className="mt-4 font-semibold text-slate-900">
+                <p className="mt-4 font-semibold text-[var(--text)]">
                   User profile
                 </p>
-                <p className="text-slate-700">
-                  <span className="font-medium text-slate-900">
+                <p className="text-[var(--text-muted)]">
+                  <span className="font-medium text-[var(--text)]">
                     Preferred name:
                   </span>{" "}
                   {draft.user_profile.preferred_name || "—"}
                 </p>
-                <p className="text-slate-700">
-                  <span className="font-medium text-slate-900">Pronouns:</span>{" "}
+                <p className="text-[var(--text-muted)]">
+                  <span className="font-medium text-[var(--text)]">Pronouns:</span>{" "}
                   {draft.user_profile.pronouns || "—"}
                 </p>
-                <p className="text-slate-700">
-                  <span className="font-medium text-slate-900">Timezone:</span>{" "}
+                <p className="text-[var(--text-muted)]">
+                  <span className="font-medium text-[var(--text)]">Timezone:</span>{" "}
                   {draft.user_profile.timezone || "—"}
                 </p>
               </>
             ) : null}
             {draft.lead_agent ? (
               <>
-                <p className="mt-4 font-semibold text-slate-900">
+                <p className="mt-4 font-semibold text-[var(--text)]">
                   Lead agent preferences
                 </p>
-                <p className="text-slate-700">
-                  <span className="font-medium text-slate-900">Name:</span>{" "}
+                <p className="text-[var(--text-muted)]">
+                  <span className="font-medium text-[var(--text)]">Name:</span>{" "}
                   {draft.lead_agent.name || "—"}
                 </p>
-                <p className="text-slate-700">
-                  <span className="font-medium text-slate-900">Role:</span>{" "}
+                <p className="text-[var(--text-muted)]">
+                  <span className="font-medium text-[var(--text)]">Role:</span>{" "}
                   {draft.lead_agent.identity_profile?.role || "—"}
                 </p>
-                <p className="text-slate-700">
-                  <span className="font-medium text-slate-900">
+                <p className="text-[var(--text-muted)]">
+                  <span className="font-medium text-[var(--text)]">
                     Communication:
                   </span>{" "}
                   {draft.lead_agent.identity_profile?.communication_style ||
                     "—"}
                 </p>
-                <p className="text-slate-700">
-                  <span className="font-medium text-slate-900">Emoji:</span>{" "}
+                <p className="text-[var(--text-muted)]">
+                  <span className="font-medium text-[var(--text)]">Emoji:</span>{" "}
                   {draft.lead_agent.identity_profile?.emoji || "—"}
                 </p>
               </>
             ) : null}
           </div>
-          <div className="rounded-lg border border-slate-200 bg-white p-3">
+          <div className="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-3">
             <div className="flex items-center justify-between gap-2">
-              <p className="text-sm font-semibold text-slate-900">
+              <p className="text-sm font-semibold text-[var(--text)]">
                 Extra context (optional)
               </p>
               <Button
@@ -527,12 +527,12 @@ export function BoardOnboardingChat({
                         : "Send context"}
                   </Button>
                 </div>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-[var(--text-muted)]">
                   Tip: press Enter to send. Shift+Enter for a newline.
                 </p>
               </div>
             ) : (
-              <p className="mt-2 text-xs text-slate-600">
+              <p className="mt-2 text-xs text-[var(--text-muted)]">
                 Add anything that wasn&apos;t covered in the agent&apos;s
                 questions.
               </p>
@@ -550,13 +550,13 @@ export function BoardOnboardingChat({
         </div>
       ) : question ? (
         <div className="space-y-3">
-          <p className="text-sm font-medium text-slate-900">
+          <p className="text-sm font-medium text-[var(--text)]">
             {question.question}
           </p>
           {isAwaitingAgent ? (
-            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
-              <div className="flex items-center gap-2 font-medium text-slate-900">
-                <RefreshCcw className="h-4 w-4 animate-spin text-slate-500" />
+            <div className="rounded-xl border border-[var(--border)] page-bg px-4 py-3 text-sm text-[var(--text-muted)]">
+              <div className="flex items-center gap-2 font-medium text-[var(--text)]">
+                <RefreshCcw className="h-4 w-4 animate-spin text-[var(--text-muted)]" />
                 <span>
                   {awaitingKind === "extra_context"
                     ? "Updating the draft…"
@@ -564,14 +564,14 @@ export function BoardOnboardingChat({
                 </span>
               </div>
               {lastSubmittedAnswer ? (
-                <p className="mt-2 text-xs text-slate-600">
+                <p className="mt-2 text-xs text-[var(--text-muted)]">
                   Sent:{" "}
-                  <span className="font-medium text-slate-900">
+                  <span className="font-medium text-[var(--text)]">
                     {lastSubmittedAnswer}
                   </span>
                 </p>
               ) : null}
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-[var(--text-muted)]">
                 This usually takes a few seconds.
               </p>
             </div>
@@ -611,7 +611,7 @@ export function BoardOnboardingChat({
                 }}
                 disabled={loading || isAwaitingAgent}
               />
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-[var(--text-muted)]">
                 Tip: press Enter to send. Shift+Enter for a newline.
               </p>
             </div>
@@ -631,16 +631,16 @@ export function BoardOnboardingChat({
               {loading ? "Sending..." : isAwaitingAgent ? "Waiting..." : "Next"}
             </Button>
             {loading ? (
-              <p className="text-xs text-slate-500">Sending your answer…</p>
+              <p className="text-xs text-[var(--text-muted)]">Sending your answer…</p>
             ) : isAwaitingAgent ? (
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-[var(--text-muted)]">
                 Waiting for the agent to respond…
               </p>
             ) : null}
           </div>
         </div>
       ) : (
-        <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm text-slate-600">
+        <div className="rounded-lg border border-[var(--border)] page-bg p-3 text-sm text-[var(--text-muted)]">
           {loading
             ? "Waiting for the lead agent..."
             : "Preparing onboarding..."}

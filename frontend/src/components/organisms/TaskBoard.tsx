@@ -51,34 +51,34 @@ const columns: Array<{
   {
     title: "Inbox",
     status: "inbox",
-    dot: "bg-slate-400",
-    accent: "hover:border-slate-400 hover:bg-slate-50",
-    text: "group-hover:text-slate-700 text-slate-500",
-    badge: "bg-slate-100 text-slate-600",
+    dot: "bg-[var(--text-quiet)]",
+    accent: "hover:border-[var(--border-strong)] hover:page-bg",
+    text: "group-hover:text-[var(--text-muted)] text-[var(--text-muted)]",
+    badge: "bg-[var(--surface-muted)] text-[var(--text-muted)]",
   },
   {
     title: "In Progress",
     status: "in_progress",
     dot: "bg-purple-500",
     accent: "hover:border-purple-400 hover:bg-purple-50",
-    text: "group-hover:text-purple-600 text-slate-500",
-    badge: "bg-purple-100 text-purple-700",
+    text: "group-hover:text-purple-600 text-[var(--text-muted)]",
+    badge: "pill-violet",
   },
   {
     title: "Review",
     status: "review",
     dot: "bg-indigo-500",
     accent: "hover:border-indigo-400 hover:bg-indigo-50",
-    text: "group-hover:text-indigo-600 text-slate-500",
-    badge: "bg-indigo-100 text-indigo-700",
+    text: "group-hover:text-indigo-600 text-[var(--text-muted)]",
+    badge: "pill-indigo",
   },
   {
     title: "Done",
     status: "done",
     dot: "bg-green-500",
     accent: "hover:border-green-400 hover:bg-green-50",
-    text: "group-hover:text-green-600 text-slate-500",
-    badge: "bg-emerald-100 text-emerald-700",
+    text: "group-hover:text-green-600 text-[var(--text-muted)]",
+    badge: "status-online",
   },
 ];
 
@@ -430,11 +430,11 @@ export const TaskBoard = memo(function TaskBoard({
             onDragOver={readOnly ? undefined : handleDragOver(column.status)}
             onDragLeave={readOnly ? undefined : handleDragLeave(column.status)}
           >
-            <div className="column-header z-10 rounded-t-xl border border-b-0 border-slate-200 bg-white px-4 py-3 sm:sticky sm:top-0 sm:bg-white/80 sm:backdrop-blur">
+            <div className="column-header z-10 rounded-t-xl border border-b-0 border-[var(--border)] bg-[var(--surface)] px-4 py-3 sm:sticky sm:top-0 sm:bg-[var(--surface)]/80 sm:backdrop-blur">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className={cn("h-2 w-2 rounded-full", column.dot)} />
-                  <h3 className="text-sm font-semibold text-slate-900">
+                  <h3 className="text-sm font-semibold text-[var(--text)]">
                     {column.title}
                   </h3>
                 </div>
@@ -448,7 +448,7 @@ export const TaskBoard = memo(function TaskBoard({
                 </span>
               </div>
               {column.status === "review" && reviewCounts ? (
-                <div className="mt-2 flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                <div className="mt-2 flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
                   {(
                     [
                       { key: "all", label: "All", count: reviewCounts.all },
@@ -476,8 +476,8 @@ export const TaskBoard = memo(function TaskBoard({
                       className={cn(
                         "rounded-full border px-2.5 py-1 transition",
                         reviewBucket === option.key
-                          ? "border-slate-900 bg-slate-900 text-white"
-                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50",
+                          ? "border-[var(--text)] bg-[var(--text)] text-[var(--surface)]"
+                          : "border-[var(--border)] bg-[var(--surface)] text-[var(--text-muted)] hover:border-[var(--border-strong)] hover:page-bg",
                       )}
                       aria-pressed={reviewBucket === option.key}
                     >
@@ -487,7 +487,7 @@ export const TaskBoard = memo(function TaskBoard({
                 </div>
               ) : null}
             </div>
-            <div className="rounded-b-xl border border-t-0 border-slate-200 bg-white p-3">
+            <div className="rounded-b-xl border border-t-0 border-[var(--border)] bg-[var(--surface)] p-3">
               <div className="space-y-3">
                 {filteredTasks.map((task) => {
                   const dueState = resolveDueState(task);

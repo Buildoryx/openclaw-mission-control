@@ -19,6 +19,16 @@ from app.schemas.board_webhooks import (
     BoardWebhookUpdate,
 )
 from app.schemas.boards import BoardCreate, BoardRead, BoardUpdate
+from app.schemas.deliberation import (
+    DeliberationCreate,
+    DeliberationEntryCreate,
+    DeliberationEntryRead,
+    DeliberationRead,
+    DeliberationSynthesisCreate,
+    DeliberationSynthesisRead,
+    DeliberationUpdate,
+)
+from app.schemas.episodic_memory import AgentTrackRecord, EpisodicMemoryRead
 from app.schemas.gateways import GatewayCreate, GatewayRead, GatewayUpdate
 from app.schemas.metrics import DashboardMetrics
 from app.schemas.organizations import (
@@ -55,10 +65,19 @@ __all__ = [
     "ActivityEventRead",
     "AgentCreate",
     "AgentRead",
+    "AgentTrackRecord",
     "AgentUpdate",
     "ApprovalCreate",
     "ApprovalRead",
     "ApprovalUpdate",
+    "DeliberationCreate",
+    "DeliberationEntryCreate",
+    "DeliberationEntryRead",
+    "DeliberationRead",
+    "DeliberationSynthesisCreate",
+    "DeliberationSynthesisRead",
+    "DeliberationUpdate",
+    "EpisodicMemoryRead",
     "BoardGroupMemoryCreate",
     "BoardGroupMemoryRead",
     "BoardMemoryCreate",

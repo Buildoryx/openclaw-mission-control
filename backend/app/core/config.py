@@ -36,7 +36,9 @@ class Settings(BaseSettings):
     )
 
     environment: str = "dev"
-    database_url: str = "postgresql+psycopg://postgres:postgres@localhost:5432/openclaw_agency"
+    database_url: str = (
+        "postgresql+psycopg://postgres:postgres@localhost:5432/openclaw_agency"
+    )
 
     # Auth mode: "clerk" for Clerk JWT auth, "local" for shared bearer token auth.
     auth_mode: AuthMode
@@ -58,6 +60,19 @@ class Settings(BaseSettings):
 
     # Database lifecycle
     db_auto_migrate: bool = False
+
+    # Embedding / vector search
+    embedding_provider: str = "none"  # "fastembed", "openai", or "none"
+    embedding_model: str = "BAAI/bge-small-en-v1.5"
+    embedding_dim: int = 384
+    openai_api_key: str = ""
+
+    # Deliberation engine
+    deliberation_divergence_threshold: float = 0.3
+    deliberation_max_turns: int = 6
+    deliberation_entry_retention_days: int = 90
+    memory_working_ttl_default: int = 600
+    memory_stream_maxlen: int = 10000
 
     # RQ queueing / dispatch
     rq_redis_url: str = "redis://localhost:6379/0"
