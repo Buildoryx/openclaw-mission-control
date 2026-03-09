@@ -12,6 +12,7 @@ import {
   Folder,
   Building2,
   LayoutGrid,
+  MessageSquare,
   Network,
   Settings,
   Store,
@@ -68,7 +69,7 @@ export function DashboardSidebar() {
     "px-3 text-[11px] font-semibold uppercase tracking-wider text-[var(--text-quiet)]";
 
   return (
-    <aside className="flex h-full w-64 flex-col border-r border-[var(--border)] bg-[var(--surface)]">
+    <aside className="flex h-full w-64 flex-shrink-0 flex-col overflow-y-auto border-r border-[var(--border)] bg-[var(--surface)]">
       <div className="flex-1 px-3 py-4">
         <p className="px-3 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
           Navigation
@@ -108,6 +109,18 @@ export function DashboardSidebar() {
               >
                 <Coins className="h-4 w-4" />
                 Token usage
+              </Link>
+              <Link
+                href="/deliberations"
+                className={cn(
+                  linkBase,
+                  pathname.startsWith("/deliberations")
+                    ? linkActive
+                    : linkInactive,
+                )}
+              >
+                <MessageSquare className="h-4 w-4" />
+                Deliberations
               </Link>
             </div>
           </div>

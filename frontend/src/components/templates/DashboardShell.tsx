@@ -70,7 +70,7 @@ export function DashboardShell({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-app text-strong">
+    <div className="flex h-screen flex-col overflow-hidden bg-app text-strong">
       <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--surface)] shadow-sm">
         <div className="grid grid-cols-[260px_1fr_auto] items-center gap-0 py-3">
           <div className="flex items-center px-6">
@@ -97,7 +97,7 @@ export function DashboardShell({ children }: { children: ReactNode }) {
           </SignedIn>
         </div>
       </header>
-      <div className="grid min-h-[calc(100vh-64px)] grid-cols-[260px_1fr] page-bg">
+      <div className="flex flex-1 overflow-hidden page-bg">
         {children}
       </div>
     </div>
