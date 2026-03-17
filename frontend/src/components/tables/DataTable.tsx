@@ -59,10 +59,10 @@ export function DataTable<TData>({
   stickyHeader = false,
   tableClassName = "w-full text-left text-sm",
   headerClassName,
-  headerCellClassName = "px-3 py-2 md:px-6 md:py-3",
-  bodyClassName = "divide-y divide-slate-100",
-  rowClassName = "hover:bg-slate-50",
-  cellClassName = "px-3 py-3 md:px-6 md:py-4",
+  headerCellClassName = "px-6 py-3",
+  bodyClassName = "table-divide divide-y",
+  rowClassName = "table-row-hover",
+  cellClassName = "px-6 py-4",
 }: DataTableProps<TData>) {
   const resolvedRowActions = rowActions
     ? (rowActions.actions ??
@@ -93,7 +93,7 @@ export function DataTable<TData>({
         <thead
           className={
             headerClassName ??
-            `${stickyHeader ? "sticky top-0 z-10 " : ""}bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500`
+            `${stickyHeader ? "sticky top-0 z-10 " : ""}table-header text-xs font-semibold uppercase tracking-wider`
           }
         >
           {table.getHeaderGroups().map((headerGroup) => (
@@ -117,7 +117,9 @@ export function DataTable<TData>({
                       ) : header.column.getIsSorted() === "desc" ? (
                         "↓"
                       ) : (
-                        <span className="text-slate-300">↕</span>
+                        <span className="text-[var(--table-sort-inactive)]">
+                          ↕
+                        </span>
                       )}
                     </button>
                   ) : (
@@ -206,7 +208,7 @@ export function DataTable<TData>({
             <tr>
               <td
                 colSpan={colSpan}
-                className="px-6 py-8 text-sm text-slate-500"
+                className="px-6 py-8 text-sm text-[var(--text-muted)]"
               >
                 {emptyMessage}
               </td>

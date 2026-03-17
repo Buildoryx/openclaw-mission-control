@@ -38,9 +38,9 @@ export function TaskCustomFieldsEditor({
   emptyMessage = "No custom fields configured for this board.",
 }: TaskCustomFieldsEditorProps) {
   if (isLoading)
-    return <p className="text-xs text-slate-500">{loadingMessage}</p>;
+    return <p className="text-xs text-[var(--text-muted)]">{loadingMessage}</p>;
   if (definitions.length === 0) {
-    return <p className="text-xs text-slate-500">{emptyMessage}</p>;
+    return <p className="text-xs text-[var(--text-muted)]">{emptyMessage}</p>;
   }
 
   return (
@@ -51,10 +51,10 @@ export function TaskCustomFieldsEditor({
 
         return (
           <div key={definition.id} className="space-y-1">
-            <label className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+            <label className="text-[11px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
               {definition.label || definition.field_key}
               {definition.required === true ? (
-                <span className="ml-1 text-rose-600">*</span>
+                <span className="ml-1 text-[var(--danger)]">*</span>
               ) : null}
             </label>
 
@@ -145,7 +145,7 @@ export function TaskCustomFieldsEditor({
             )}
 
             {definition.description ? (
-              <p className="text-xs text-slate-500">{definition.description}</p>
+              <p className="text-xs text-[var(--text-muted)]">{definition.description}</p>
             ) : null}
           </div>
         );

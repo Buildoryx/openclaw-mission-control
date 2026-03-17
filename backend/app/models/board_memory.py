@@ -25,4 +25,8 @@ class BoardMemory(QueryModel, table=True):
     tags: list[str] | None = Field(default=None, sa_column=Column(JSON))
     is_chat: bool = Field(default=False, index=True)
     source: str | None = None
+    # pgvector embedding for semantic search; actual Vector(384) column type is
+    # applied via Alembic migration.  Stored as JSON here for portability when
+    # pgvector extension is not yet installed.
+    embedding: list[float] | None = Field(default=None, sa_column=Column(JSON))
     created_at: datetime = Field(default_factory=utcnow)

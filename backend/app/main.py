@@ -21,6 +21,8 @@ from app.api.board_memory import router as board_memory_router
 from app.api.board_onboarding import router as board_onboarding_router
 from app.api.board_webhooks import router as board_webhooks_router
 from app.api.boards import router as boards_router
+from app.api.deliberations import router as deliberations_router
+from app.api.episodic_memory import router as episodic_memory_router
 from app.api.gateway import router as gateway_router
 from app.api.gateways import router as gateways_router
 from app.api.metrics import router as metrics_router
@@ -30,6 +32,7 @@ from app.api.souls_directory import router as souls_directory_router
 from app.api.tags import router as tags_router
 from app.api.task_custom_fields import router as task_custom_fields_router
 from app.api.tasks import router as tasks_router
+from app.api.token_usage import router as token_usage_router
 from app.api.users import router as users_router
 from app.core.config import settings
 from app.core.error_handling import install_error_handling
@@ -75,6 +78,10 @@ OPENAPI_TAGS = [
         "description": "Aggregated operational and board analytics metrics endpoints.",
     },
     {
+        "name": "token-usage",
+        "description": "Token usage tracking, ingestion, and analytics endpoints for LLM cost visibility.",
+    },
+    {
         "name": "organizations",
         "description": "Organization profile, membership, and governance management endpoints.",
     },
@@ -101,6 +108,14 @@ OPENAPI_TAGS = [
     {
         "name": "board-memory",
         "description": "Board-scoped memory read/write endpoints for persistent context.",
+    },
+    {
+        "name": "deliberations",
+        "description": "Agent deliberation, debate, and synthesis endpoints.",
+    },
+    {
+        "name": "episodic-memory",
+        "description": "Pattern learning from past deliberations and agent track records.",
     },
     {
         "name": "board-webhooks",
@@ -173,6 +188,8 @@ _OPENAPI_EXAMPLE_TAGS = {
     "board-group-memory",
     "boards",
     "board-memory",
+    "deliberations",
+    "episodic-memory",
     "board-webhooks",
     "board-onboarding",
     "approvals",
@@ -264,14 +281,18 @@ def _example_from_schema(schema: dict[str, Any], *, components: dict[str, Any]) 
             for key, property_schema in properties.items():
                 if not isinstance(property_schema, dict):
                     continue
-                property_example = _example_from_schema(property_schema, components=components)
+                property_example = _example_from_schema(
+                    property_schema, components=components
+                )
                 if property_example is not None:
                     output[key] = property_example
         if output:
             return output
         additional_properties = resolved.get("additionalProperties")
         if isinstance(additional_properties, dict):
-            value_example = _example_from_schema(additional_properties, components=components)
+            value_example = _example_from_schema(
+                additional_properties, components=components
+            )
             if value_example is not None:
                 return {"key": value_example}
         return {}
@@ -357,7 +378,10 @@ def _normalize_operation_docs(
         if not isinstance(response, dict):
             continue
         existing_description = str(response.get("description", "")).strip()
-        if not existing_description or existing_description in _GENERIC_RESPONSE_DESCRIPTIONS:
+        if (
+            not existing_description
+            or existing_description in _GENERIC_RESPONSE_DESCRIPTIONS
+        ):
             response["description"] = _HTTP_RESPONSE_DESCRIPTIONS.get(
                 str(status_code),
                 "Request processed.",
@@ -391,7 +415,9 @@ def _inject_tagged_operation_openapi_docs(openapi_schema: dict[str, Any]) -> Non
             if isinstance(request_body, dict):
                 request_content = request_body.get("content")
                 if isinstance(request_content, dict):
-                    _inject_json_content_example(content=request_content, components=components)
+                    _inject_json_content_example(
+                        content=request_content, components=components
+                    )
 
             responses = operation.get("responses")
             if isinstance(responses, dict):
@@ -544,6 +570,7 @@ api_v1.include_router(activity_router)
 api_v1.include_router(gateway_router)
 api_v1.include_router(gateways_router)
 api_v1.include_router(metrics_router)
+api_v1.include_router(token_usage_router)
 api_v1.include_router(organizations_router)
 api_v1.include_router(souls_directory_router)
 api_v1.include_router(skills_marketplace_router)
@@ -551,6 +578,8 @@ api_v1.include_router(board_groups_router)
 api_v1.include_router(board_group_memory_router)
 api_v1.include_router(boards_router)
 api_v1.include_router(board_memory_router)
+api_v1.include_router(deliberations_router)
+api_v1.include_router(episodic_memory_router)
 api_v1.include_router(board_webhooks_router)
 api_v1.include_router(board_onboarding_router)
 api_v1.include_router(approvals_router)

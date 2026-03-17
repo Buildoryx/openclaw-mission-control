@@ -32,10 +32,10 @@ export default function BoardApprovalsPage() {
       </SignedOut>
       <SignedIn>
         <DashboardSidebar />
-        <main className="flex-1 overflow-y-auto bg-gradient-to-br from-slate-50 to-slate-100">
-          <div className="p-4 md:p-6">
+        <main className="flex-1 overflow-y-auto bg-gradient-to-br from-[var(--page-bg-gradient-from)] to-[var(--page-bg-gradient-to)]">
+          <div className="p-6">
             {boardId ? (
-              <div className="h-[calc(100vh-160px)] min-h-[300px] sm:min-h-[520px]">
+              <div className="h-[calc(100vh-160px)] min-h-[520px]">
                 <BoardApprovalsPanel boardId={boardId} scrollable />
               </div>
             ) : null}

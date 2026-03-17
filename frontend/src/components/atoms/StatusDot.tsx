@@ -34,9 +34,9 @@ const STATUS_DOT_CLASS_BY_VARIANT: Record<
 };
 
 const DEFAULT_STATUS_DOT_CLASS: Record<StatusDotVariant, string> = {
-  agent: "bg-slate-300",
+  agent: "bg-[var(--surface-strong)]",
   approval: "bg-amber-500",
-  task: "bg-slate-300",
+  task: "bg-[var(--surface-strong)]",
 };
 
 export const statusDotClass = (
