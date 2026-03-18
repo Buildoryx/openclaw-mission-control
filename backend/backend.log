@@ -1,0 +1,301 @@
+nohup: ignoring input
+2026-03-18 06:56:33,663 INFO app.core.logging logging.configured level=INFO format=text use_utc=False app=mission-control version=0.1.0
+2026-03-18 06:56:33,783 INFO alembic.runtime.plugins setup plugin alembic.autogenerate.schemas app=mission-control version=0.1.0
+2026-03-18 06:56:33,783 INFO alembic.runtime.plugins setup plugin alembic.autogenerate.tables app=mission-control version=0.1.0
+2026-03-18 06:56:33,783 INFO alembic.runtime.plugins setup plugin alembic.autogenerate.types app=mission-control version=0.1.0
+2026-03-18 06:56:33,783 INFO alembic.runtime.plugins setup plugin alembic.autogenerate.constraints app=mission-control version=0.1.0
+2026-03-18 06:56:33,783 INFO alembic.runtime.plugins setup plugin alembic.autogenerate.defaults app=mission-control version=0.1.0
+2026-03-18 06:56:33,783 INFO alembic.runtime.plugins setup plugin alembic.autogenerate.comments app=mission-control version=0.1.0
+2026-03-18 06:56:35,249 INFO app.services.memory.embedding embedding.provider=none — semantic search disabled app=mission-control version=0.1.0
+2026-03-18 06:56:35,494 INFO app.main app.cors.enabled origins_count=3 app=mission-control version=0.1.0
+INFO:     Started server process [47078]
+INFO:     Waiting for application startup.
+2026-03-18 06:56:36,378 INFO app.main app.lifecycle.starting environment=dev db_auto_migrate=False app=mission-control version=0.1.0
+2026-03-18 06:56:36,412 INFO app.main app.lifecycle.rate_limit backend=memory app=mission-control version=0.1.0
+2026-03-18 06:56:36,412 INFO app.main app.lifecycle.started app=mission-control version=0.1.0
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:44170 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/tasks/stream?since=2026-03-17T21%3A12%3A03.002Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44170 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/tasks/stream?since=2026-03-17T21%3A12%3A03.002Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44186 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/approvals/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44186 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/approvals/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54488 - "GET /api/v1/board-groups/f9537d7b-9d02-476e-a3e1-25cb81d84285/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54494 - "GET /api/v1/boards HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39498 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39498 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59864 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/approvals/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59868 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/tasks/stream?since=2026-03-17T21%3A12%3A03.002Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59870 - "OPTIONS /api/v1/agents/stream?board_id=833b2c90-e94a-4f55-8123-c5dd20a5d785&since=2026-03-17T21%3A07%3A33.740Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59864 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/approvals/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59868 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/tasks/stream?since=2026-03-17T21%3A12%3A03.002Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59870 - "GET /api/v1/agents/stream?board_id=833b2c90-e94a-4f55-8123-c5dd20a5d785&since=2026-03-17T21%3A07%3A33.740Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37100 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37100 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37110 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37126 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37126 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37130 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37136 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37152 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37168 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37182 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37186 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37182 - "OPTIONS /api/v1/tags HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37200 - "OPTIONS /api/v1/organizations/me/custom-fields HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37186 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37182 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37200 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37152 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37168 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37136 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37186 - "GET /api/v1/organizations/me/custom-fields HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37182 - "GET /api/v1/tags HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37200 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37136 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/group-snapshot?include_self=false&include_done=false&per_board_task_limit=5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37200 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/approvals/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37200 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/tasks/stream?since=2026-03-17T21%3A12%3A03.002Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37168 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/approvals/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37136 - "GET /api/v1/agents/stream?board_id=833b2c90-e94a-4f55-8123-c5dd20a5d785&since=2026-03-17T21%3A07%3A33.740Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37200 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/tasks/stream?since=2026-03-17T21%3A12%3A03.002Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37182 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/group-snapshot?include_self=false&include_done=false&per_board_task_limit=5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37182 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/approvals/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37152 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/tasks/stream?since=2026-03-17T21%3A12%3A03.002Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37186 - "GET /api/v1/agents/stream?board_id=833b2c90-e94a-4f55-8123-c5dd20a5d785&since=2026-03-17T21%3A07%3A33.740Z HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37208 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37212 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37214 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37242 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37246 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37248 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37250 - "OPTIONS /api/v1/boards HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37228 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37246 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37248 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37242 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37250 - "GET /api/v1/boards HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37250 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+2026-03-18 06:57:29,390 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=8cf3d14fa1334fd4b51215f77e83a1b8 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:37250 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52920 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52920 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52934 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52958 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52970 - "OPTIONS /api/v1/token-usage/dashboard?range_key=5d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53000 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53010 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52974 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53000 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53010 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52984 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52970 - "GET /api/v1/token-usage/dashboard?range_key=5d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42308 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42308 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37932 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37948 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37932 - "GET /api/v1/token-usage/dashboard?range_key=5d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46224 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46224 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40938 - "GET /api/v1/token-usage/dashboard?range_key=5d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40938 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40938 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51670 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51670 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47920 - "GET /api/v1/token-usage/dashboard?range_key=5d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47920 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47920 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43142 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43152 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43152 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43152 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43204 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43216 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43218 - "OPTIONS /api/v1/boards HTTP/1.1" 200 OK
+2026-03-18 07:00:57,507 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=ad7eced58ea146e7b82c13bc848ec52c method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:43204 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43216 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43192 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43180 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43200 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43218 - "GET /api/v1/boards HTTP/1.1" 200 OK
+2026-03-18 07:00:57,738 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=a4ddeca8d9bf444f83a4c5a8067bb035 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:43200 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43218 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=created&limit=100&offset=0 HTTP/1.1" 200 OK
+2026-03-18 07:01:00,403 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=a7cd840c9905457b88eda948f2c610ae method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:43218 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=created&limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43218 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=debating&limit=100&offset=0 HTTP/1.1" 200 OK
+2026-03-18 07:01:01,520 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=e32504f24a434887980b436df31d562a method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:43218 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=debating&limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43218 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=discussing&limit=100&offset=0 HTTP/1.1" 200 OK
+2026-03-18 07:01:02,102 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=b76a427173d94b55a4e605e6325eb569 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:43218 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=discussing&limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43218 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=verifying&limit=100&offset=0 HTTP/1.1" 200 OK
+2026-03-18 07:01:02,638 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=4db929df36484c13aec56a761c154adc method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:43218 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=verifying&limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43218 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=synthesizing&limit=100&offset=0 HTTP/1.1" 200 OK
+2026-03-18 07:01:03,136 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=21e28295c7ff4b91a201cb613b725624 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:43218 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=synthesizing&limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43218 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=concluded&limit=100&offset=0 HTTP/1.1" 200 OK
+2026-03-18 07:01:03,640 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=04e2bb16cd564da5821bb136a27607e4 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:43218 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=concluded&limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43218 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=abandoned&limit=100&offset=0 HTTP/1.1" 200 OK
+2026-03-18 07:01:04,119 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=e6219d37d99a4d98936cb0d965672849 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:43218 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?status=abandoned&limit=100&offset=0 HTTP/1.1" 200 OK
+2026-03-18 07:01:04,944 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=73de66e64f9f4a30a6a15c453e471369 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:43218 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53166 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53166 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46558 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46558 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48176 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48182 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48188 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48188 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48212 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48216 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48218 - "OPTIONS /api/v1/boards HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48212 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48216 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48196 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48188 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48218 - "GET /api/v1/boards HTTP/1.1" 200 OK
+2026-03-18 07:02:13,248 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=ab85fafd7c594a08a1476133ff4ef600 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:48218 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36568 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36568 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36584 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36592 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36602 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36616 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36616 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36628 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36632 - "OPTIONS /api/v1/boards HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36602 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36628 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36634 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36616 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36632 - "GET /api/v1/boards HTTP/1.1" 200 OK
+2026-03-18 07:02:47,793 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=089bbb40d9ab45689b92d2bfffc2580c method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:36632 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36632 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36632 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36616 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36602 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36676 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36678 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36678 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36676 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36650 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36634 - "GET /api/v1/token-usage/dashboard?range_key=5d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36666 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+2026-03-18 07:03:10,306 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=5606f25872244b5dadd0249814bec4c1 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:32926 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48366 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48366 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48302 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48310 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48310 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48310 - "OPTIONS /api/v1/boards?limit=200&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48310 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48320 - "OPTIONS /api/v1/agents/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48326 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48318 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48326 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48320 - "GET /api/v1/agents/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48310 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48328 - "GET /api/v1/boards?limit=200&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48326 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48328 - "GET /api/v1/boards?limit=200&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48328 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48328 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/tasks/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48328 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/approvals/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48310 - "OPTIONS /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/memory/stream?is_chat=true HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48318 - "OPTIONS /api/v1/activity?limit=200&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48328 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/tasks/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48310 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/approvals/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48326 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/memory/stream?is_chat=true HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48318 - "GET /api/v1/activity?limit=200&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55786 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55802 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55802 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55812 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55816 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55822 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55816 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55816 - "OPTIONS /api/v1/boards?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55816 - "OPTIONS /api/v1/activity?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55846 - "OPTIONS /api/v1/agents?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55816 - "OPTIONS /api/v1/metrics/dashboard?range_key=7d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55822 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55830 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55814 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55828 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55846 - "GET /api/v1/boards?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55816 - "GET /api/v1/activity?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55814 - "GET /api/v1/agents?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55830 - "GET /api/v1/metrics/dashboard?range_key=7d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55830 - "OPTIONS /api/v1/gateways/status?board_id=833b2c90-e94a-4f55-8123-c5dd20a5d785 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55830 - "GET /api/v1/gateways/status?board_id=833b2c90-e94a-4f55-8123-c5dd20a5d785 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49806 - "OPTIONS /api/v1/activity?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49806 - "GET /api/v1/activity?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49806 - "OPTIONS /api/v1/agents?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49806 - "GET /api/v1/agents?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49806 - "OPTIONS /api/v1/metrics/dashboard?range_key=7d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49806 - "GET /api/v1/metrics/dashboard?range_key=7d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49820 - "GET /api/v1/gateways/status?board_id=833b2c90-e94a-4f55-8123-c5dd20a5d785 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "OPTIONS /api/v1/boards?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "GET /api/v1/boards?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "GET /api/v1/activity?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "GET /api/v1/agents?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "GET /api/v1/metrics/dashboard?range_key=7d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55146 - "GET /api/v1/gateways/status?board_id=833b2c90-e94a-4f55-8123-c5dd20a5d785 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55146 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55162 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55164 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55186 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55196 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55198 - "OPTIONS /api/v1/boards HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55176 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55186 - "GET /healthz HTTP/1.1" 200 OK
+2026-03-18 07:04:22,254 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=2c6462b3355c458c99b274991a76b759 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:55178 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55196 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55198 - "GET /api/v1/boards HTTP/1.1" 200 OK
+2026-03-18 07:04:22,523 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=da421dafa29145909eb4d0ba7664d8aa method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:55140 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41582 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41582 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41582 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41582 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41622 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41622 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41626 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41638 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41646 - "OPTIONS /api/v1/boards HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41626 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41638 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41636 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41622 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41646 - "GET /api/v1/boards HTTP/1.1" 200 OK
+2026-03-18 07:04:24,621 WARNING app.core.agent_auth agent auth optional invalid token path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations token_prefix=c03a18 app=mission-control version=0.1.0 request_id=05d87f38b8c34591a61c3db3c1c68b98 method=GET path=/api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations
+INFO:     127.0.0.1:41646 - "GET /api/v1/boards/833b2c90-e94a-4f55-8123-c5dd20a5d785/deliberations?limit=100&offset=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59172 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59172 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53250 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53252 - "OPTIONS /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53250 - "OPTIONS /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53252 - "OPTIONS /api/v1/token-usage/dashboard?range_key=5d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53254 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53266 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53254 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53250 - "GET /api/v1/organizations/me/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53268 - "GET /api/v1/organizations/me/member HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53252 - "GET /api/v1/token-usage/dashboard?range_key=5d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50124 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50124 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41818 - "OPTIONS /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41818 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41808 - "GET /api/v1/token-usage/dashboard?range_key=5d HTTP/1.1" 200 OK

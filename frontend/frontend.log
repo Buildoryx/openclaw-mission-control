@@ -1,0 +1,60 @@
+nohup: ignoring input
+
+> frontend@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.30:3000
+- Environments: .env
+
+✓ Starting...
+✓ Ready in 2.4s
+ GET /boards/833b2c90-e94a-4f55-8123-c5dd20a5d785 200 in 3.8s (compile: 3.3s, proxy.ts: 153ms, render: 367ms)
+ GET /boards/833b2c90-e94a-4f55-8123-c5dd20a5d785 200 in 84ms (compile: 36ms, proxy.ts: 4ms, render: 44ms)
+ GET /token-usage 200 in 1320ms (compile: 1289ms, proxy.ts: 5ms, render: 27ms)
+ GET /deliberations 200 in 466ms (compile: 442ms, proxy.ts: 4ms, render: 20ms)
+ GET /boards 200 in 256ms (compile: 234ms, proxy.ts: 3ms, render: 18ms)
+ GET /skills/marketplace 200 in 199ms (compile: 180ms, proxy.ts: 4ms, render: 16ms)
+ GET /boards 200 in 25ms (compile: 4ms, proxy.ts: 6ms, render: 15ms)
+ GET /board-groups 200 in 176ms (compile: 156ms, proxy.ts: 4ms, render: 16ms)
+ GET /board-groups 200 in 27ms (compile: 4ms, proxy.ts: 4ms, render: 18ms)
+ GET /agents 200 in 265ms (compile: 247ms, proxy.ts: 3ms, render: 15ms)
+ GET /board-groups 200 in 21ms (compile: 3ms, proxy.ts: 4ms, render: 15ms)
+ GET /boards 200 in 21ms (compile: 3ms, proxy.ts: 4ms, render: 15ms)
+ GET /board-groups 200 in 19ms (compile: 2ms, proxy.ts: 3ms, render: 14ms)
+ GET /boards 200 in 22ms (compile: 4ms, proxy.ts: 4ms, render: 15ms)
+ GET /board-groups 200 in 19ms (compile: 3ms, proxy.ts: 3ms, render: 13ms)
+ GET /board-groups 200 in 95ms (compile: 2ms, proxy.ts: 3ms, render: 89ms)
+ GET /boards 200 in 20ms (compile: 3ms, proxy.ts: 4ms, render: 13ms)
+ GET /board-groups 200 in 17ms (compile: 3ms, proxy.ts: 3ms, render: 10ms)
+ GET /board-groups/f9537d7b-9d02-476e-a3e1-25cb81d84285 200 in 652ms (compile: 623ms, proxy.ts: 3ms, render: 27ms)
+ GET /boards 200 in 22ms (compile: 3ms, proxy.ts: 3ms, render: 15ms)
+ GET /boards 200 in 53ms (compile: 3ms, proxy.ts: 3ms, render: 47ms)
+ GET /boards/new 200 in 279ms (compile: 259ms, proxy.ts: 3ms, render: 17ms)
+ GET /board-groups 200 in 19ms (compile: 3ms, proxy.ts: 4ms, render: 13ms)
+ GET /board-groups/f9537d7b-9d02-476e-a3e1-25cb81d84285 200 in 67ms (compile: 49ms, proxy.ts: 3ms, render: 15ms)
+ GET /board-groups 200 in 17ms (compile: 2ms, proxy.ts: 3ms, render: 11ms)
+ GET /board-groups/f9537d7b-9d02-476e-a3e1-25cb81d84285 200 in 67ms (compile: 47ms, proxy.ts: 3ms, render: 17ms)
+ GET /board-groups/f9537d7b-9d02-476e-a3e1-25cb81d84285 200 in 163ms (compile: 46ms, proxy.ts: 3ms, render: 115ms)
+ GET /board-groups 200 in 21ms (compile: 4ms, proxy.ts: 3ms, render: 14ms)
+ GET /board-groups 200 in 44ms (compile: 5ms, proxy.ts: 4ms, render: 35ms)
+ GET /boards 200 in 19ms (compile: 3ms, proxy.ts: 4ms, render: 13ms)
+ GET /board-groups/f9537d7b-9d02-476e-a3e1-25cb81d84285 200 in 65ms (compile: 46ms, proxy.ts: 3ms, render: 16ms)
+ GET /boards/833b2c90-e94a-4f55-8123-c5dd20a5d785?taskId=b6823c88-2597-4226-bc67-b4bab32e655e 200 in 67ms (compile: 49ms, proxy.ts: 3ms, render: 15ms)
+ GET /boards/833b2c90-e94a-4f55-8123-c5dd20a5d785 200 in 83ms (compile: 57ms, proxy.ts: 3ms, render: 23ms)
+ GET /boards/833b2c90-e94a-4f55-8123-c5dd20a5d785 200 in 101ms (compile: 55ms, proxy.ts: 2ms, render: 44ms)
+ GET /boards/833b2c90-e94a-4f55-8123-c5dd20a5d785?taskId=b6823c88-2597-4226-bc67-b4bab32e655e 200 in 77ms (compile: 56ms, proxy.ts: 4ms, render: 16ms)
+ GET /boards/833b2c90-e94a-4f55-8123-c5dd20a5d785 200 in 86ms (compile: 58ms, proxy.ts: 4ms, render: 23ms)
+ GET /boards/833b2c90-e94a-4f55-8123-c5dd20a5d785 200 in 93ms (compile: 48ms, proxy.ts: 3ms, render: 42ms)
+ GET /deliberations 200 in 20ms (compile: 3ms, proxy.ts: 5ms, render: 12ms)
+ GET /token-usage 200 in 21ms (compile: 3ms, proxy.ts: 3ms, render: 16ms)
+ GET /deliberations 200 in 21ms (compile: 5ms, proxy.ts: 3ms, render: 13ms)
+ GET /deliberations 200 in 149ms (compile: 4ms, proxy.ts: 2ms, render: 142ms)
+ GET /deliberations 200 in 39ms (compile: 1885µs, proxy.ts: 3ms, render: 34ms)
+ GET /token-usage 200 in 18ms (compile: 2ms, proxy.ts: 4ms, render: 12ms)
+ GET /activity 200 in 385ms (compile: 357ms, proxy.ts: 4ms, render: 24ms)
+ GET /dashboard 200 in 236ms (compile: 217ms, proxy.ts: 3ms, render: 16ms)
+ GET /deliberations 200 in 18ms (compile: 3ms, proxy.ts: 3ms, render: 12ms)
+ GET /deliberations 200 in 41ms (compile: 2ms, proxy.ts: 3ms, render: 35ms)
+ GET /token-usage 200 in 21ms (compile: 2ms, proxy.ts: 3ms, render: 16ms)

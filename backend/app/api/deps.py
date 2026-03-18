@@ -24,7 +24,7 @@ from uuid import UUID
 
 from fastapi import Depends, HTTPException, Request, status
 
-from app.core.agent_auth import get_agent_auth_context_optional
+from app.core.agent_auth import AgentAuthContext, get_agent_auth_context_optional
 from app.core.auth import AuthContext, get_auth_context, get_auth_context_optional
 from app.db.session import get_session
 from app.models.boards import Board
@@ -46,7 +46,14 @@ if TYPE_CHECKING:
     from app.models.users import User
 
 AUTH_DEP = Depends(get_auth_context)
+AUTH_OPTIONAL_DEP = Depends(get_auth_context_optional)
+AGENT_AUTH_OPTIONAL_DEP = Depends(get_agent_auth_context_optional)
 SESSION_DEP = Depends(get_session)
+
+
+def require_admin(auth: AuthContext) -> None:
+    """Raise HTTP 403 unless the actor is a human user. (Admin check logic placeholder)"""
+    require_user_actor(auth)
 
 
 def require_user_auth(auth: AuthContext = AUTH_DEP) -> AuthContext:
@@ -68,11 +75,7 @@ async def require_user_or_agent(
     request: Request,
     session: AsyncSession = SESSION_DEP,
 ) -> ActorContext:
-    """Authorize either a human user or an authenticated agent.
-
-    User auth is resolved first so normal bearer-token user traffic does not
-    also trigger agent-token verification on mixed user/agent routes.
-    """
+    """Authorize either a human user or an authenticated agent."""
     auth = await get_auth_context_optional(
         request=request,
         credentials=None,
@@ -88,6 +91,19 @@ async def require_user_or_agent(
         session=session,
     )
     if agent_auth is not None:
+        return ActorContext(actor_type="agent", agent=agent_auth.agent)
+    raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
+
+
+async def require_admin_or_agent(
+    auth: AuthContext | None = AUTH_OPTIONAL_DEP,
+    agent_auth: AgentAuthContext | None = AGENT_AUTH_OPTIONAL_DEP,
+) -> ActorContext:
+    """Authorize either a human admin (placeholder check) or an authenticated agent."""
+    if auth is not None and auth.user is not None:
+        require_admin(auth)
+        return ActorContext(actor_type="user", user=auth.user)
+    if agent_auth is not None and agent_auth.agent is not None:
         return ActorContext(actor_type="agent", agent=agent_auth.agent)
     raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
 
